@@ -12,6 +12,6 @@ Dump this into your JS console while on the website of interest:
     var i = document.createElement('iframe'); i.style.display = 'none'; document.body.appendChild(i);
     var b = Object.getOwnPropertyNames(i.contentWindow); b.push('getUserDefinedGlobals');
     document.body.removeChild(i);
-    console.info(Object.getOwnPropertyNames(window).filter(function(x) { return builtins.indexOf(x) === -1; }));
+    console.info(Object.getOwnPropertyNames(window).filter(function(x) { return b.indexOf(x) === -1; }));
 })();
 ```
