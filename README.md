@@ -8,5 +8,10 @@ Released under the MIT license.
 Dump this into your JS console while on the website of interest:  
 
 ```js
-var s = document.createElement('script'); s.src = 'https://cdn.rawgit.com/jdfreder/getUserDefinedGlobals/master/index.js'; s.onload = function() { console.info(getUserDefinedGlobals()); }; document.body.appendChild(s);
+(function() {
+    var i = document.createElement('iframe'); i.style.display = 'none'; document.body.appendChild(i);
+    var b = Object.getOwnPropertyNames(i.contentWindow); b.push('getUserDefinedGlobals');
+    document.body.removeChild(i);
+    console.info(Object.getOwnPropertyNames(context || window).filter(function(x) { return builtins.indexOf(x) === -1; }));
+})();
 ```
