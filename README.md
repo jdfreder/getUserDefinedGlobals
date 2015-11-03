@@ -5,10 +5,9 @@ Released under the MIT license.
 
 ## Use
 
-Dump this into your JS console while on the website of interest:
+Dump this into your JS console while on the website of interest:  
+
 ```js
-var s = document.createElement('script');
-s.setAttribute('src', 'https://cdn.rawgit.com/jdfreder/getUserDefinedGlobals/master/index.js');
-document.body.appendChild(s);
-getUserDefinedGlobals();
+function cb() { console.info(getUserDefinedGlobals()); }
+var s = document.createElement('script'); s.type = 'text/javascript'; s.src = 'https://cdn.rawgit.com/jdfreder/getUserDefinedGlobals/master/index.js'; s.onreadystatechange = cb; s.onload = cb; document.body.appendChild(s);
 ```
